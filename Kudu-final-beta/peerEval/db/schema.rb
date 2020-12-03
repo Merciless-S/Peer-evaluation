@@ -10,39 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_212305) do
+ActiveRecord::Schema.define(version: 2020_12_03_211438) do
 
-  create_table "admins", force: :cascade do |t|
-    t.string "fname"
-    t.string "lname"
-    t.integer "buckid"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "scores", force: :cascade do |t|
-    t.integer "grader"
-    t.integer "teammate"
-    t.integer "projectNum"
+  create_table "comments", force: :cascade do |t|
+    t.integer "to_user"
+    t.integer "from_user"
+    t.text "content"
     t.integer "score"
-    t.string "comments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "team_id"
+    t.index ["team_id"], name: "index_comments_on_team_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string "fname"
-    t.string "lname"
-    t.integer "buckid"
-    t.integer "groupNum"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "projects_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "project_id", null: false
   end
 
   create_table "teams", force: :cascade do |t|
-    t.integer "groupNum"
+    t.string "team_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "project_id"
+    t.index ["project_id"], name: "index_teams_on_project_id"
+  end
+
+  create_table "teams_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "team_id", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

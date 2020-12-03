@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  get 'team/getAllTeams'
-  get 'admin/getAdmin'
-  get 'admin/postAdmin'
-  get 'score/postScore'
-  get 'score/getByGrader'
-  get 'score/getByTeammate'
-  get 'student/postStudent'
-  get 'student/deleteStudent'
-  get 'student/getByGroupnum'
-  get 'student/getByBuckid'
-  get 'student/index'
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :projects
+  resources :comments
+  get 'home/index'
+  root 'home#index'
+  get "signup", to: "users#new", as: "signup"
+  get "login", to: "sessions#new", as: "login"
+  get "logout", to: "sessions#destroy", as: "logout"
+  get "viewProject", to: "projects#show", as: "viewProject"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
