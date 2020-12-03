@@ -1,0 +1,14 @@
+
+<%= form_with(model: comment, local: true) do |form| %>
+
+  <%= select(:comment, :score, [['1', 1], ['2', 2], ['3', 3], ['4', 5], ['5', 5]]) %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

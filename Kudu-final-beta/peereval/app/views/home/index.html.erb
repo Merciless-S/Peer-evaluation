@@ -1,0 +1,15 @@
+<% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <br>
+  <%  current_user.projects.each do |p| %>
+      <p><h3>
+  <%= link_to "Start to comment on your teammates for #{p.name}\n", project_path(p), class:"button" %>
+</h3></p>
+  <% end %>
+  <%= link_to "Log Out", logout_path %>
+
+<% else %>
+  <%= link_to "Sign Up", signup_path %> or
+  <%= link_to "Log In", login_path %>
+<% end %>
+<p id=”notice”><%= notice %></p>

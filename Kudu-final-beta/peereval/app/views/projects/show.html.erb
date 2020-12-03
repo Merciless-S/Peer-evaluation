@@ -1,0 +1,26 @@
+
+<% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <br>
+  <h2>Project  <%=@project.name%></h2><br>
+  <%if @team == nil %>
+    <h3><%="You do not have any team member in this project" %></h3>
+  <%else %>
+  <h3>Team  <%=@team.team_name%></h3><br>
+
+    <%if @teammates.length == 0%>
+      <h3><%="You have evaluated all your teammate in this team" %></h3>
+      <%else %>
+  <%  @teammates.each do |p| %>
+    <p><h3>
+      <%= link_to "Start to comment on your teammates for #{p.name}\n", new_comment_path(:peer_id => p.id), class:"button" %>
+ </h3></p>
+        <%end %>
+  <% end %>
+    <% end %>
+  <%= link_to "Log Out", logout_path %>
+
+<% else %>
+  <%= link_to "Sign Up", signup_path %> or
+  <%= link_to "Log In", login_path %>
+<% end %>
