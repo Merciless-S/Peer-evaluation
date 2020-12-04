@@ -13,6 +13,7 @@ end
 def team
   @team = Team.find(params[:id])
   @users = @team.users
+  @comments = @team.comments
 end
   def create
     @admin = Amin.new(user_params)
