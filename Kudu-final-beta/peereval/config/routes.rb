@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'admin/index' 
+  #get 'admin/new'
+  #get 'admin/create'
+  #get 'admin/update'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -8,6 +12,8 @@ Rails.application.routes.draw do
   resources :comments
   get 'home/index'
   root 'home#index'
+  get '/admin/team/:id', to: "admin#team", as: "team" 
+  get '/admin/start', to: "admin#start", as: "admin"
   get "signup", to: "users#new", as: "signup"
   get "login", to: "sessions#new", as: "login"
   get "logout", to: "sessions#destroy", as: "logout"
