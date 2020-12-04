@@ -9,7 +9,7 @@
   <% @comments.each do |comment| %>
     
     <li> 
-    Project Name <%= comment.project.name %>
+    Project Name <%= comment.team.project.name %>
     User <%= comment.to_user %> 
     From <%= comment.from_user %> 
     Score <%= comment.score %> 
