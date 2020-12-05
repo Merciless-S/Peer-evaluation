@@ -4,7 +4,7 @@ In classes with a team component, such as 3901, peer evaluations are important c
 
 A web application would streamline the collection, collation, and analysis of these peer evaluations.
 
-## feature
+## Feature
 1. Adiminstrator is able to delete/create new project/team, and be about to remove a student from a project/team.
 2. Student can only evaluate his teammate in a project.
 3. Usage of ruby on rails and boostrap to create attractive UI.
