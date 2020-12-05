@@ -1,4 +1,13 @@
 # Kudu-final-beta
+## Intro
+In classes with a team component, such as 3901, peer evaluations are important component of the grading rubric. The feedback from these evaluations is useful to the instructor for assigning a score to an individual student, as well as to the students for receiving constructive criticism from their peers.
+
+A web application would streamline the collection, collation, and analysis of these peer evaluations.
+
+## feature
+1. Adiminstrator is able to delete/create new project/team, and be about to remove a student from a project/team.
+2. Student can only evaluate his teammate in a project.
+3. Usage of ruby on rails and boostrap to create attractive UI.
 
 ## How to start the project
 1. cd to the peereval folder, and use bundle install to install all missing libraries in Gemfile
