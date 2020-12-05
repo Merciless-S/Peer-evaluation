@@ -11,6 +11,7 @@ Here are some student info for test purposes:
 1. email: abc1@gmail.com, password: 1231
 2. email: abc2@gmail.com, password: 1232
 3. email: abc3@gmail.com, password: 1233
-4. email: abc4@gmail.com, password: 1234\n
+4. email: abc4@gmail.com, password: 1234
+
 Student can also register new account in the website.
 
