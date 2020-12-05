@@ -70,7 +70,7 @@ class CommentsController < ApplicationController
       @comment = Comment.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    # Only allow a list of trusted parameters pass through.
     def comment_params
       params.require(:comment).permit(:from_user, :to_user, :project_id, :score, :content, :team_id)
     end
