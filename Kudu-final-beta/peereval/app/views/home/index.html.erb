@@ -1,16 +1,37 @@
-<% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <br>
-  <%  current_user.projects.each do |p| %>
-      <p><h3>
-  <%= link_to "Start to comment on your teammates for #{p.name}\n", project_path(p), class:"button" %>
-</h3></p>
-  <% end %>
-  <%= link_to "Log Out", logout_path %>
+<br><br>
+<div class="container">
+  <% current_user.teams.each do |team| %>
+    <div class="card">
+      <div class="card-header" style="background-color:#f8f9fc;">
+        <%= team.team_name %>
+      </div>
+      <% users = team.users %>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nickname</th>
+              <th>Email</th>
+              <th>Evaluation</th>
+              <th></th>
+            </tr>
+          </thead>
 
-<% else %>
-  <%= link_to "Sign Up", signup_path %> or
-  <%= link_to "Log In", login_path %> or
-  <%= link_to "Admin view", admin_path %>
-<% end %>
-<p id=”notice”><%= notice %></p>
+          <tbody>
+            <% users.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= link_to "Enter", new_comment_path(to_user_id: user.id, team_id: team.id) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div><br>
+  <% end %>
+</div>
+<%= javascript_include_tag "plugin.js" %>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmMsed0zPFAgZoiy8oORF6kZTurpIrdg0&libraries=visualization&callback=initMap">
+</script>

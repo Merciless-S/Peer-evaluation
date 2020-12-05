@@ -1,22 +1,15 @@
 Rails.application.routes.draw do
-  get 'admin/index' 
-  #get 'admin/new'
-  #get 'admin/create'
-  #get 'admin/update'
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :projects
+  resources :admin_users
+  resources :teams
   resources :comments
-  get 'home/index'
+  resources :projects
   root 'home#index'
-  get '/admin/team/:id', to: "admin#team", as: "team" 
-  get '/admin/start', to: "admin#start", as: "admin"
-  get "signup", to: "users#new", as: "signup"
-  get "login", to: "sessions#new", as: "login"
-  get "logout", to: "sessions#destroy", as: "logout"
-  get "viewProject", to: "projects#show", as: "viewProject"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'sessions/new'
+  get 'register', to: 'users#new'
+  post 'register', to: 'users#create'
+  get 'change_password', to: "users#edit"
+  post 'change_password', to: "users#change_password"
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 end

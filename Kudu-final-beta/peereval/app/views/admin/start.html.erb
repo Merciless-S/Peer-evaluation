@@ -1,5 +1,0 @@
-<ul>
-  <% @teams.each do |team| %>
-    <li><%=link_to team.team_name, team_path(team)%> project <%= team.project.name %></li>
-  <% end %>
-</ul>
