@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team name:</strong>
+  <%= @team.team_name %>
+</p>
+<%@projects.each do |p| %>
+<div class="container">
+  <div class="card">
+    <div class="card-header" style="background-color:#f8f9fc;">
+      Member analysis for project <%= p.name%>
+    </div>
+    <div class="card-body">
+      <%
+        final_hash = {}
+        @team.users.each do |user|
+          final_hash[user.name] = Comment.where(team_id: @team.id, to_user: user.id, project_id: p.id).average(:score)
+        end
+      %>
+      <%= bar_chart final_hash %>
+    </div>
+  </div><br>
+</div>
+<%end %>
+<%= javascript_include_tag "plugin.js" %>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmMsed0zPFAgZoiy8oORF6kZTurpIrdg0&libraries=visualization&callback=initMap">
+</script>
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>

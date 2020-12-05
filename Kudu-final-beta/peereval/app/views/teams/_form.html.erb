@@ -1,0 +1,21 @@
+
+<%= simple_nested_form_for(@team) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :team_name %>
+  </div>
+
+  <%= f.fields_for :team_users do |user_form| %>
+    <%= user_form.input :user_id, collection: User.all, label: "Member" %>
+    <%= user_form.link_to_remove "Remove this user" %>
+  <% end %>
+
+  <p><%= f.link_to_add "Add a member", :team_users %></p>
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
