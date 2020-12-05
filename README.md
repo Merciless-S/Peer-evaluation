@@ -1,13 +1,13 @@
-## Kudu-final-beta
+# Kudu-final-beta
 
-# How to start the project
+## How to start the project
 1. cd to the peereval folder, and use bundle install to install all missing libraries in Gemfile
 2. If your yarn is in old version, please follow the prompt in command line to install a newer version.
 3. use "rails s" to start the server at "localhost:3000"
 4. open your browser, go to the website "localhost:3000".
 
-# Info about the login: 
-There is only one adminstrator, his email is: joseph.97@osu.edu, password: 123456.
+## Info about the login: 
+There is only one adminstrator, his email is: # joseph.97@osu.edu, password: # 123456.
 
 Here are some student info for test purposes:
 1. email: abc1@gmail.com, password: 1231
