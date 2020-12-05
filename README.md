@@ -10,10 +10,10 @@ A web application would streamline the collection, collation, and analysis of th
 3. Usage of ruby on rails and boostrap to create attractive UI.
 
 ## How to start the project
-1. cd to the peereval folder, and use bundle install to install all missing libraries in Gemfile
-2. If your yarn is in old version, please follow the prompt in command line to install a newer version.
-3. use "rails s" to start the server at "localhost:3000"
-4. open your browser, go to the website "localhost:3000".
+1. Follow instructions online to install ruby on your system
+2. Run the command `bundle install` to install dependencies
+3. Run the command `rails s` to start a development server
+4. Open your browser, go to the website [http://localhost:3000/](http://localhost:3000/).
 
 ## Info about the login: 
 There is only one adminstrator, his email is: joseph.97@osu.edu, password: 123456.
