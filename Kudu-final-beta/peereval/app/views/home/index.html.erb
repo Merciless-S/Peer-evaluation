@@ -1,0 +1,37 @@
+<br><br>
+<div class="container">
+  <% current_user.teams.each do |team| %>
+    <div class="card">
+      <div class="card-header" style="background-color:#f8f9fc;">
+        <%= team.team_name %>
+      </div>
+      <% users = team.users %>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Nickname</th>
+              <th>Email</th>
+              <th>Evaluation</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% users.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= link_to "Enter", new_comment_path(to_user_id: user.id, team_id: team.id) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div><br>
+  <% end %>
+</div>
+<%= javascript_include_tag "plugin.js" %>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmMsed0zPFAgZoiy8oORF6kZTurpIrdg0&libraries=visualization&callback=initMap">
+</script>

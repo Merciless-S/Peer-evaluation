@@ -1,0 +1,9 @@
+<div class="col-2" style="border-right: 1px solid #dcdfe6;">
+  <h3 style="margin-left:40px;">Admin<span class="badge badge-success" style="font-size:12px;"><%= current_user.name %></span></h3>
+  <br>
+  <div class="nav flex-column nav-pills" aria-orientation="vertical" style="margin-left:20px;">
+    <a class="nav-pills nav-link <%= 'active' if request.fullpath =~ /admin_users/ %>" href="/admin_users">Users</a>
+    <a class="nav-pills nav-link <%= 'active' if request.fullpath =~ /teams/ %>" href="/teams">Teams</a>
+    <a class="nav-pills nav-link <%= 'active' if request.fullpath =~ /projects/ %>" href="/projects">Projects</a>
+  </div>
+</div>
