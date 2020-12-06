@@ -12,8 +12,9 @@ A web application would streamline the collection, collation, and analysis of th
 ## How to start the project
 1. Follow instructions online to install ruby on your system
 2. Run the command `bundle install` to install dependencies
-3. Run the command `rails s` to start a development server
-4. Open your browser, go to the website [http://localhost:3000/](http://localhost:3000/).
+3. Run the command `rails db:environment:set RAILS_ENV=development`
+4. Run the command `rails s` to start a development server
+5. Open your browser, go to the website [http://localhost:3000/](http://localhost:3000/).
 
 ## Info about the login: 
 There is only one adminstrator, his email is: joseph.97@osu.edu, password: 123456.
