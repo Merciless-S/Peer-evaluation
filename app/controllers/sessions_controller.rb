@@ -9,7 +9,13 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
       flash[:notice] = "login successful!"
-      redirect_to root_url
+
+      # Admin users are redirected to teams management page
+      if user.is_admin?
+        redirect_to teams_url
+      else
+        redirect_to root_url
+      end
     else
       flash[:notice] = "Email or Password invalid"
       redirect_to login_url
