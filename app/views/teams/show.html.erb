@@ -10,11 +10,22 @@
     <div class="card-header" style="background-color:#f8f9fc;">
       Member analysis for project <%= p.name%>
     </div>
+    <% @team.users.each do |user| %>
+      <% if Comment.where(team_id: @team.id, to_user: user.id, project_id: p.id).length() == 0%>
+        <div class="card-header" style="background-color:#f0d5d5;">
+          No peer reviews have been submited for <%= user.name %>
+        </div>
+      <% end %>
+    <% end %>
     <div class="card-body">
       <%
         final_hash = {}
         @team.users.each do |user|
-          final_hash[user.name] = Comment.where(team_id: @team.id, to_user: user.id, project_id: p.id).average(:score)
+          scores = Comment.where(team_id: @team.id, to_user: user.id, project_id: p.id)
+          if scores.length() > 0
+            title = "%s (%d/%d)" % [user.name, scores.length(), @team.users.length()]
+            final_hash[title] = scores.average(:score)
+          end
         end
       %>
       <%= bar_chart final_hash %>
