@@ -151,7 +151,7 @@ GEM
     multi_json (1.15.0)
     nenv (0.3.0)
     nested_form (0.3.2)
-    nio4r (2.5.4)
+    nio4r (2.5.8)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.10-x64-mingw32)
@@ -164,7 +164,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.6)
-    puma (4.3.7)
+    puma (4.3.11)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-proxy (0.6.5)
@@ -295,7 +295,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   nested_form
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.3, >= 6.0.3.4)
   ransack
   sass-rails (>= 6)
